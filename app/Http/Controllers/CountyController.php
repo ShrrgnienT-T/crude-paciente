@@ -11,7 +11,7 @@ class CountyController extends Controller
      */
     public function index()
     {
-        echo 'Cheguei no municipio';
+        echo 'cheguei no município!';
     }
 
     /**

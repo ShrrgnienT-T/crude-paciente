@@ -8,13 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class County extends Model
 {
     use HasFactory;
-    protected $fillable= [
-        'cpf',
-        'cns',
+
+    protected $fillable = [
+        'ibge',
         'name',
-        'birth',
-        'email',
-        'phone',
-        'county_id'
+        'fu'
     ];
 }

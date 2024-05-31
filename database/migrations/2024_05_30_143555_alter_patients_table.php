@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('patients', function (Blueprint $table) {
             $table->foreignId('county_id')->constrained();
         });
-    
     }
 
     /**

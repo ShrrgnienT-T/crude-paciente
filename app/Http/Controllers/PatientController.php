@@ -11,18 +11,18 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients= [
-
-            'cpf' => '23567293059',
-            'cns' => '037284950283596',
-            'name' => 'fulando de tal',
+        //TODO buscar os dados no bd
+        $patients = [
+            'cpf' => '9089890809',
+            'cns' => '867676867',
+            'name' => 'fulano de tal',
             'birth' => '01/01/2000',
             'email' => 'teste@gmail.com',
-            'phone' => '6511111111111',
+            'phone' => '8979878998',
             'county_id' => '1'
-           
         ];
-        return view ('patients.index', ['patients' => collect($patients)]);
+
+        return view('patients.index', ['patients' => collect($patients)]);
     }
 
     /**

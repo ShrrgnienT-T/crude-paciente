@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('counties', function (Blueprint $table) {
             $table->id();
-            $table->string('ibge',6);
+            $table->string('ibge', 6)->unique();
             $table->string('name');
-            $table->char('fu',2)->default('MT');
-
+            $table->char('fu', 2)->default('MT');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('counties_');
+        Schema::dropIfExists('counties');
     }
 };
