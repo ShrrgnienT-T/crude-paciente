@@ -32,8 +32,13 @@
                             <td>{{ $patient->phone }}</td>
                             <td>{{ "{$patient->county->name}/{$patient->county->fu}" }}</td>
                             <td>
-                                <a href="#" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{route('patients.edit',$patient)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <form action="{{route('patients.destroy',$patient)}}" method="POST" @style('display: inline-block')>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick=message()><i class="fas fa-trash-alt"> </i></button>
+
+                            </form>
                             </td>
                         </tr>
                     @empty
@@ -50,4 +55,12 @@
           {{ $patients->links() }}
         </div>
     </div>
+@endsection
+
+@section ('js')
+    <script>
+        function confirm(){
+            echo 'deseja apagar o registro?'
+        }
+    </script>
 @endsection

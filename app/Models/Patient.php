@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Casts\CpfCast;
+use App\Casts\CnsCast;
+use App\Casts\PhoneCast;
 use App\Casts\DateToBRCast;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,7 +29,10 @@ class Patient extends Model
     {
         return [
             'cpf' => CpfCast::class,
-            'birth' => DateToBRCast::class
+            'birth' => DateToBRCast::class,
+            'cns'=> CnsCast::class,
+            'phone'=> PhoneCast::class
+
         ];
     }
 

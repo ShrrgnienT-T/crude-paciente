@@ -31,4 +31,14 @@ class PatientRequest extends FormRequest
             'county_id' => ['required', 'numeric', 'between:1,142']
         ];
     }
+
+    protected function prepareForValidation()
+    {
+        return $this->merge([
+            'cpf' => str_replace(['.', '-'], '', $this->cpf),
+            'cns' => str_replace(['.'], '', $this->cns),
+            'phone' => str_replace(['-',')','(',' '], '', $this->phone),
+        ]);
+    
+    }
 }

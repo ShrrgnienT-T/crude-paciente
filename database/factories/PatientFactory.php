@@ -18,11 +18,11 @@ class PatientFactory extends Factory
     {
         return [
             'cpf' => fake()->unique()->cpf(false),
-            'cns' => fake()->unique()->rg(false),
+            'cns' => fake()->unique()->rg(false).fake()->randomNumber(6),
             'name' => fake()->name(),
             'birth' => fake()->date('Y_m_d'),
             'email' => fake()->unique()->safeEmail(),
-            'phone' => fake()->cellphone(),
+            'phone' => fake()->randomNumber(6).fake()->randomNumber(5),
             'county_id' => fake()->randomNumber(1,142)
         ];
     }

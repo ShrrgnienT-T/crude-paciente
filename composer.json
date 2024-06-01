@@ -9,6 +9,7 @@
         "fakerphp/faker": "^1.23",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "laravellegends/pt-br-validator": "^11.0",
         "realrashid/sweet-alert": "^7.1"
     },
     "require-dev": {

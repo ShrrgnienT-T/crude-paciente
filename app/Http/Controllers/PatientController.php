@@ -51,24 +51,26 @@ class PatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Patient $patient)
     {
-        //
+        return view ('patients.edit', compact('patient'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PatientRequest $request, Patient $patient)
     {
-        //
+        $patient->update($request->safe()->all());
+        return redirect()->route('patients.index', ['id'=>$patient->id])->withSuccess('Paciente atualizado com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Patient $patient)
     {
-        //
+       $patient->delete();
+       return redirect('patients')->withSuccess('Paciente apagado com sucesso');
     }
 }
