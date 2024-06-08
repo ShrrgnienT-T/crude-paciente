@@ -9,7 +9,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">#</th>
                         <th scope="col">CPF</th>
                         <th scope="col">CNS</th>
                         <th scope="col">NOME</th>
@@ -23,7 +23,7 @@
                 <tbody>
                     @forelse ($patients as $patient)
                         <tr>
-                            <th scope="row">{{ $patient->id }}</th>
+                            <th scope="row">{{ $loop->iteration}}</th>
                             <td>{{ $patient->cpf }}</td>
                             <td>{{ $patient->cns }}</td>
                             <td>{{ $patient->name }}</td>
@@ -39,6 +39,7 @@
                                     <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"> </i></button>
 
                             </form>
+                            <a href="{{route('patients.show',$patient)}}" class="btn btn-info"><i class="fa-solid fa-eye"></i> </a>
                             </td>
                         </tr>
                     @empty
