@@ -28,6 +28,7 @@
           </ul>
       </div>
    <div class="card-footer">
+    <a href="{{route('patients.pdf', $patient)}}" class="btn btn-info"> Exportar pdf </a>
     <a href="{{route('patients.index')}}" class="btn btn-danger"> Voltar </a>
    </div>
 

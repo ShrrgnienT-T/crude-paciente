@@ -40,6 +40,7 @@
 
                             </form>
                             <a href="{{route('patients.show',$patient)}}" class="btn btn-info"><i class="fa-solid fa-eye"></i> </a>
+                            <a href="{{ route('patients.pdf', $patient) }}" class="btn btn-dark" target="_blank"><i class="far fa-file-pdf"></i></a>
                             </td>
                         </tr>
                     @empty
