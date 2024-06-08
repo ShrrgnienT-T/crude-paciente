@@ -33,10 +33,10 @@
                             <td>{{ "{$patient->county->name}/{$patient->county->fu}" }}</td>
                             <td>
                                 <a href="{{route('patients.edit',$patient)}}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                <form action="{{route('patients.destroy',$patient)}}" method="POST" @style('display: inline-block')>
+                                <form action="{{route('patients.destroy',$patient)}}" method="POST" @style('display: inline-block') class="delete">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick=message()><i class="fas fa-trash-alt"> </i></button>
+                                    <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"> </i></button>
 
                             </form>
                             </td>
@@ -57,10 +57,24 @@
     </div>
 @endsection
 
-@section ('js')
+@section('js')
     <script>
-        function confirm(){
-            echo 'deseja apagar o registro?'
-        }
+        $('form.delete').on('click', (e) => {
+            e.preventDefault()
+            Swal.fire({
+                title: "Apagar Paciente!",
+                text: "Realmente deseja apagar esse paciente?",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonText: "Não",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sim"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    e.currentTarget.submit()
+                }
+            });
+        })
     </script>
 @endsection
