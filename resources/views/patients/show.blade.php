@@ -10,7 +10,11 @@
     <div class="card">
         <ul class="list-group">
             <li class="list-group-item">FOTO: <br/>
+                @isset($patient->foto)
                 <img src="{{asset($patient->foto)}}" alt="foto do paciente" {{$patient->id}}>
+                @else
+                <span class="text-danger"> Sem Foto! </span>
+                @endif
             </li>
             <li class="list-group-item">ID:  {{$patient->id}}</li>
             <li class="list-group-item">CPF: {{$patient->cpf}}</li>
