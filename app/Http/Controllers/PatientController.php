@@ -13,9 +13,25 @@ class PatientController extends Controller
      */
     public function index(Request $request)
     {
+       
         $patients = Patient::with('county');
 
         $request->filled('id') ? $patients->findOrFail($request->id) : '';
+
+        // TODO temos que corrigir a pesquisa por data de nascimento
+
+        
+        $request->filled('search') ? $patients->where('name', 'like', '% '. $request->search. '%') 
+       ->orWhere('cpf', $request->search) 
+       ->orWhere('cns', $request->search) 
+    //    ->orWhere('birth', $request->search) 
+       ->orWhere('email', 'like', '% '. $request->search. '%') 
+       ->orWhere('phone', $request->search) 
+       ->orWhereHas('county', function($query) use ($request){
+        $query->where('name', 'like', '%' . $request->search . '%');
+    })
+        
+        : '';
 
         return view('patients.index', [
             'patients' => $patients->paginate(10)

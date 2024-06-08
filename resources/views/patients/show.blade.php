@@ -28,7 +28,7 @@
           </ul>
       </div>
    <div class="card-footer">
-    <a href="#" class="btn btn-danger"> Voltar </a>
+    <a href="{{route('patients.index')}}" class="btn btn-danger"> Voltar </a>
    </div>
 
 @endsection
