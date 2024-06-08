@@ -17,6 +17,7 @@ class PatientFactory extends Factory
     public function definition(): array
     {
         return [
+            'foto' => 'images/' . fake ()->randomNumber(1,9). '.png',
             'cpf' => fake()->unique()->cpf(false),
             'cns' => fake()->unique()->rg(false).fake()->randomNumber(6),
             'name' => fake()->name(),

@@ -7,8 +7,11 @@
     <div class="card-header"> 
         <h1> </h1>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <ul class="list-group">
+            <li class="list-group-item">FOTO: <br/>
+                <img src="{{asset($patient->foto)}}" alt="foto do paciente" {{$patient->id}}>
+            </li>
             <li class="list-group-item">ID:  {{$patient->id}}</li>
             <li class="list-group-item">CPF: {{$patient->cpf}}</li>
             <li class="list-group-item">CNS: {{$patient->cns}}</li>
