@@ -9,13 +9,16 @@
     </div>
     <div class="card">
         <ul class="list-group">
-            <li class="list-group-item">FOTO: <br/>
-                @isset($patient->foto)
-                <img src="{{asset($patient->foto)}}" alt="foto do paciente" {{$patient->id}}>
-                @else
-                <span class="text-danger"> Sem Foto! </span>
+          
+            <li class="list-group-item">Foto: <br/>
+                @if($patient->foto)
+                    <img src="{{ asset($patient->foto)}}" alt="foto do paciente" />
+                @else 
+                    <img src="{{ asset('images/'.mt_rand(1,9).'.png')}}" alt="foto do paciente" 
+                    @style('width: 200px; height: 200px; border: 1px solid black; border-radius: 50%')/>
                 @endif
             </li>
+
             <li class="list-group-item">ID:  {{$patient->id}}</li>
             <li class="list-group-item">CPF: {{$patient->cpf}}</li>
             <li class="list-group-item">CNS: {{$patient->cns}}</li>
