@@ -4,8 +4,12 @@
 
 @section('content')
     <div class="card mt-5">
-        <div class="card-body">
+        <div class="card-header">
             <h5 class="card-title">Lista de Pacientes</h5>
+            <a href="{{route('patients.export')}}" class="btn btn-success float-end" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Exportar para excel"><i class="fas fa-file-excel"></i></a>
+        </div>
+        <div class="card-body">
+          
             <table class="table">
                 <thead>
                     <tr>

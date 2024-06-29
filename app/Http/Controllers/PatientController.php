@@ -6,6 +6,8 @@ use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Http\Requests\PatientRequest;
 use Barryvdh\DomPDF\Facade\Pdf as Pdf;
+use Maatwebsite\Excel\Facades\Excel as Excel;
+use App\Exports\PatientsExport;
 
 class PatientController extends Controller
 {
@@ -102,5 +104,10 @@ class PatientController extends Controller
         return $pdf->stream($patient->name . ".pdf");
         
 
+    }
+
+    public function export() 
+    {
+        return Excel::download(new PatientsExport, 'pacientes.xlsx');
     }
 }
