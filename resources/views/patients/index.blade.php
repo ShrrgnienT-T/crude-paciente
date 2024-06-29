@@ -6,7 +6,10 @@
     <div class="card mt-5">
         <div class="card-header">
             <h5 class="card-title">Lista de Pacientes</h5>
-            <a href="{{route('patients.export')}}" class="btn btn-success float-end" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Exportar para excel"><i class="fas fa-file-excel"></i></a>
+            <div class="float-end">
+            <a href="{{route('patients.export')}}" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Exportar para excel"><i class="fas fa-file-excel"></i></a>
+            <a href="{{route('patients.chart')}}" class="btn btn-info " data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Exibir grafico"><i class="fas fa-chart-bar"></i></a>
+         </div>
         </div>
         <div class="card-body">
           
